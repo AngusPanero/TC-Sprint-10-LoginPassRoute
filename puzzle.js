@@ -1,99 +1,99 @@
 // Snippets de código para poder componer el programa
 
-//Usado?: 
+//Usado?:
   const middlewares = require('./middlewares');
 //--- Explicación: 
-
+// IMPORTACION DE MIDDLEWARE
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+// ANALIZA EL CUERPO DE LAS SOLICITUDES, COMO POR EJEMPLO UN FORMULARIO
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const session = require('express-session');
 //--- Explicación:
-
+// MIDDLEWARE QUE MANEJA SESIONES DE USUARIO
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const express = require('express');
 //--- Explicación:
-
-// -------------------------------------------------------------------------------------
+// IMPORTACION DE XPRESS PARA INICIAR APLICACION
+//--------------------------------------------------------------------------------------
 
 //Usado?: 
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+// ANALIZA EL CUERPO DE LAS SOLICITUDES, COMO POR EJEMPLO UN FORMULARIO
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const session = require('express-session');
 //--- Explicación:
-
+// MIDDLEWARE QUE MANEJA SESIONES DE USUARIO
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const dotenv = require('dotenv');
 //--- Explicación:
-
+// PERMITE CARGAR VARIABLES DE ENTONRNO
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const middlewares = require('./middlewares');
 //--- Explicación:
-
+// IMPORTACION DE MIDDLEWARE
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const routes = require('./routes');
 //--- Explicación:
-
+// IMPORTACION DE ENRUTADOR
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 dotenv.config();
 //--- Explicación:
-
+// CARGA VARIABLES DE ENTERONO DESDE UN ARCHIVO .ENV
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const app = express();
 //--- Explicación:
-
+// INICIALIZACION DE APLICACION
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const PORT = 4000;
 //--- Explicación:
-
+// NUMERO DE PUERTO PARA EL SERVIDOR
 // -------------------------------------------------------------------------------------
 
 //Usado?: 
 const dotenv = require('dotenv');
 //--- Explicación:
-
+// PERMITE CARGAR VARIABLES DE ENTONRNO
 // -------------------------------------------------------------------------------------
 
 //Usado?:
 dotenv.config();
 //--- Explicación:
-
+// CARGA VARIABLES DE ENTERONO DESDE UN ARCHIVO .ENV
 // -------------------------------------------------------------------------------------
 
 //Usado?:
 middlewares.setupApp(app);
 //--- Explicación: 
-
+// CONFIGURA MIDDLEWARES OERSONALIZADOS EN LA APP
 // -------------------------------------------------------------------------------------
 
 //Usado?:
 routes.setup(app);
 //--- Explicación: 
-
+// CONFIGURA RUTAS ESPECIFICAS DE LA APLICACION
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -108,7 +108,7 @@ const validarPalabraMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
+// Verifica si el valor de req.body.palabra coincide con una palabra secreta configurada. 
 
 // -------------------------------------------------------------------------------------
 
@@ -125,7 +125,7 @@ const setup = (app) => {
   //Aquí va código dentro
 })}
 //--- Explicación: 
-
+// FUNCION QUE RECIVE PARAMETRO APP - COMPRUEBA PALABRA SECRETA SI ES OK REDIRECCIONAA /PROFILE
 
 // -------------------------------------------------------------------------------------
 
@@ -145,11 +145,11 @@ res.send(`
   </html>
 `);
 //--- Explicación: 
-
+// ENVIA RESPUESTA EN FORMATO HTML
 
 // -------------------------------------------------------------------------------------
 
-
+//USADO?
 const setupAPP = (app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(session({
@@ -158,6 +158,9 @@ const setupAPP = (app) => {
     saveUninitialized: true,
   }));
 };
+//--- Explicación: 
+// CONFIGURA MIDDLEWARE GLOBAL PARA LA APP 
+// -------------------------------------------------------------------------------------
 
 //Usado?:
 app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
@@ -169,14 +172,14 @@ app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+// Maneja solicitudes POST enviadas a la ruta /profile.
 // -------------------------------------------------------------------------------------
 
 //Usado?:
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //--- Explicación: 
-
+// Activa el análisis de datos codificados en formularios.
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -187,6 +190,7 @@ app.use(session({
 }));
 
 //--- Explicación: 
+// Configura las sesiones en la aplicación con una clave secreta y ajustes predeterminados.
 
 // -------------------------------------------------------------------------------------
 
@@ -195,7 +199,7 @@ app.listen(PORT, () => {
   console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
 //--- Explicación: 
-
+// ESCUCHA DEL SERVIDOR 
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -207,7 +211,7 @@ const verificarSesionMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
+// MIDDLEWARE QUE VERIFICA SESION
 // -------------------------------------------------------------------------------------
 
 
@@ -221,7 +225,7 @@ app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+// ENVIA A LA PAGINA DE SESION ACTIVA
 // -------------------------------------------------------------------------------------
 
 
@@ -235,7 +239,7 @@ app.post('/logout', (req, res) => {
   });
 });
 //--- Explicación: 
-
+// CIERRA LA SESION ROMPIENDO LA ACTUAL Y REDIRIGE AL INICIO
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -243,7 +247,7 @@ module.exports = {
   setup,
 };
 //--- Explicación:
-
+// EXPORTACIONES
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -253,6 +257,6 @@ module.exports = {
   setupAPP,
 };
 //--- Explicación:
-
+// EXPORTACIONES
 // -------------------------------------------------------------------------------------
 
